@@ -24,14 +24,14 @@ esphome:
                 format: "Plug calibration start"
             - delay: 4s
             - lambda: |-
-                id(voltage_multiply) = (230 / id(voltage).raw_state);
-                ESP_LOGI("custom", "Voltage %f -- %f",id(voltage).raw_state,id(voltage_multiply));
+                id(voltage_multiply) = (230 / id(voltage).get_raw_state());
+                ESP_LOGI("custom", "Voltage %f -- %f",id(voltage).get_raw_state(),id(voltage_multiply));
 
-                id(power_multiply) = (96 / id(power).raw_state);
-                ESP_LOGI("custom", "Power %f -- %f",id(power).raw_state,id(power_multiply));
+                id(power_multiply) = (96 / id(power).get_raw_state());
+                ESP_LOGI("custom", "Power %f -- %f",id(power).get_raw_state(),id(power_multiply));
 
-                id(current_multiply) = (0.42 / id(current).raw_state);
-                ESP_LOGI("custom", "Current %f -- %f",id(current).raw_state,id(current_multiply));
+                id(current_multiply) = (0.42 / id(current).get_raw_state());
+                ESP_LOGI("custom", "Current %f -- %f",id(current).get_raw_state(),id(current_multiply));
 
                 id(power_monitor).set_change_mode_every(8);
                 id(power_monitor).set_update_interval(10000);
